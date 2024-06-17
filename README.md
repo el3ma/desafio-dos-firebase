@@ -1,5 +1,5 @@
 # desafio-dos-firebase
-***
+
 ### Deploy proyecto
 [Desafio Firebase](https://desafio-dos-firebase.web.app/)
 ***
