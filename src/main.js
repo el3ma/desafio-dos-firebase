@@ -2,5 +2,18 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import { auth,  onAuthStateChanged } from "./auth"
 
-createApp(App).use(store).use(router).mount('#app')
+let app;
+
+onAuthStateChanged(auth, (usuario) => {
+    if(usuario){
+        store.commit("AUTH_USUARIO", usuario)
+    }else {
+        store.commit("CLEAR_USER")
+    }
+
+    if(!app){
+        app = createApp(App).use(store).use(router).mount('#app')
+    }
+});
